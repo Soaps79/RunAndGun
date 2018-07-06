@@ -10,6 +10,8 @@ namespace Assets.Scripts.Weapons
         public void Spawn()
         {
             var proj = Instantiate(_projectilePrefab, this.transform.position, this.transform.rotation);
+            var rigidBody = proj.GetComponent<Rigidbody2D>();
+            rigidBody.AddForce(transform.up * 1000);
         }
     }
 }

@@ -5,16 +5,18 @@ namespace Assets.Scripts.Weapons
 {
 	public class WeaponCarrier : QScript
 	{
-		[SerializeField] private Weapon _weapon;
+		[SerializeField] private Weapon _weaponPrefab;
+	    private Weapon _weapon;
 
-		void Start ()
+        void Start ()
 		{
 		    OnEveryUpdate += CheckForMouseClick;
+		    _weapon = Instantiate(_weaponPrefab, transform);
 		}
 
 	    private void CheckForMouseClick()
 	    {
-	        if (Input.GetButtonDown("Fire1"))
+	        if (Input.GetButton("Fire1"))
 	            _weapon.TryFire();
 	    }
 	}

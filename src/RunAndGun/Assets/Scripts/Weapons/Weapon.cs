@@ -3,17 +3,15 @@ using UnityEngine;
 
 namespace Assets.Scripts.Weapons
 {
-    [RequireComponent(typeof(ProjectileSpawner))]
     public class Weapon : QScript
     {
         [SerializeField] private float _fireDelay;
         private float _elapsed;
         [SerializeField] private bool _isOnCooldown;
-        private ProjectileSpawner _projectileSpawner;
+        [SerializeField] private ProjectileSpawner _projectileSpawner;
 
         void Start()
         {
-            _projectileSpawner = GetComponent<ProjectileSpawner>();
             OnEveryUpdate += UpdateCooldown;
         }
 
